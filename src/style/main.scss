@@ -1,0 +1,21 @@
+@import 'reset';
+
+section {
+  width: 6em;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.number-display {
+  display: inline-block;
+
+  input {
+    width: 4em;
+    text-align: right;
+  }
+}
+
+.calculator-buttons {
+  cursor: pointer;
+  width: 5.5em;
+}
