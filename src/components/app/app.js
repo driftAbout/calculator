@@ -86,15 +86,17 @@ export default class App extends React.Component{
   handleOperator(operatorVal){
     this.concat = false;
     this.decimal = false;
-    this.operator = operatorVal;
+    //this.operator = operatorVal;
     this.memory = null;
     if (this.state.previous === null) {
+      this.operator = operatorVal;
       return  this.memory = this.state.current;
     }
-
-    let answer = this.calculateAnswer(operatorVal, this.state.previous, this.state.current);
+    let answer = this.calculateAnswer(this.operator, this.state.previous, this.state.current);
+    //let answer = this.calculateAnswer(operatorVal, this.state.previous, this.state.current);
     this.decimalCheck(answer);
     this.setState({current: answer, previous: this.state.current});
+    this.operator = operatorVal;
   }
 
 
@@ -136,7 +138,8 @@ export default class App extends React.Component{
             <CalcButton className="operator"
               type="operator"
               label="/" 
-              val="divide"/>
+              val="divide"
+              clickHandler={this.handleOperator}/>
           </li>
 
           <li className="calculator-button-row"> 
@@ -161,7 +164,8 @@ export default class App extends React.Component{
             <CalcButton className="operator"
               type="operator"
               label="x" 
-              val="multiply"/>
+              val="multiply"
+              clickHandler={this.handleOperator}/>
           </li>
 
           <li className="calculator-button-row"> 
@@ -186,7 +190,8 @@ export default class App extends React.Component{
             <CalcButton className="operator"
               type="operator"
               label="-" 
-              val="subtract"/>
+              val="subtract"
+              clickHandler={this.handleOperator}/>
           </li>
 
           <li className="calculator-button-row"> 
