@@ -13,10 +13,10 @@ export default class CalcButton extends React.Component{
 
   render(){
     return (
-      <li className={`calculator-button ${this.props.className}`}
+      <div className={`calculator-button ${this.props.className}`}
         onClick={this.handleClick}>
         {this.props.label}
-      </li>
+      </div>
     );
   }
 }
